@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio encriptador</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container-logo">
+            <img src="img/Logo.png" alt="">
+        </div>
+    </header>
+    <section class="container-body">
+        <div class="container-texto">
+            <textarea class="text-area" name="" id="mensaje" cols="30" rows="10" placeholder="Ingrese el texto aqui"></textarea>
+
+            <div class="container-text-warning">
+                <img class="img-warning" src="img/Vector.png" alt="">
+                <span class="text-warning">Solo letras minúsculas y sin acentos</span>
+            </div>
+
+            <div class="container-button">
+                <input class="boton-encriptador" id="btnEncriptar" type="submit" value="Encriptar">
+                <input class="boton-desencriptador" id="btnDesencriptar" type="submit" value="Desencriptar" onclick="desencriptar()">
+            </div>
+        </div>
+        <div class="container-salida">
+            <img class="img-muneco" id="imgMuneco" src="img/Muñeco.png" alt="">
+
+            <div class="container-texto-salida">
+                <h3 class="encabezado-salida">Ningún mensaje fue encontrado</h3>
+                <p class="texto-salida" id="textoSalida">Ingresa el texto que desees encriptar o desencriptar.</p>
+            </div>
+            <div class="container-button-salida">
+                <input class="boton-copiar hidden" id="btnCopiar" type="submit" value="Copiar" onclick="copiar()">
+            </div>
+        </div>
+    </section>
+
+    <script src="js/encriptar.js"></script>
+</body>
+</html>
