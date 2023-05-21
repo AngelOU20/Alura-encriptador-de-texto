@@ -161,7 +161,7 @@ body {
     display: none;
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 1280px) and (min-width: 768px) {
 
     header {
         width: 80%;
@@ -231,4 +231,107 @@ body {
         height: 56px;
     }
 
+}
+
+@media (max-width: 768px) {
+
+    .container-logo {
+        width: 100%;
+        margin: 20px 0px;
+    }
+
+    .container-body {
+        width: 80%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container-texto {
+        align-items: center;
+        width: 100%;
+    }
+
+    .container-button {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin-bottom: 40px;
+        width: 100%;
+    }
+
+    .container-text-warning {
+        margin: 20px 0px;
+        width: 100%;
+    }
+
+    .boton-encriptador {
+        width: 100%;
+        margin: 10px;
+        padding: 10px 0;
+        font-size: 1.1em;
+    }
+
+    .boton-desencriptador {
+        width: 100%;
+        margin: 10px;
+        padding: 10px 0;
+        font-size: 1.1em;
+    } 
+    
+    .img-muneco {
+        display: none;
+    }
+
+    .text-area {
+        max-height: 400px;
+        min-height: 400px;
+        max-width: 100%;
+        min-width: 100%;
+    
+        /*Font*/
+        font-size: 20px;
+    }
+
+    .text-warning {
+        font-size: 0.95em;
+    }
+
+    .container-salida  {
+        width: 120%;
+        padding: 0px;
+        margin: 30px 0;
+        position: static;
+    }
+
+    .container-texto-salida {
+        width: 80%;
+        padding: 0px;
+    }
+
+    .encabezado-salida {
+        padding: 5px;
+        font-size: 20px;
+    }
+    
+    .texto-salida {
+        font-size: 15px;
+        margin-bottom: 0px;                       
+    }
+    
+    .boton-copiar {
+        width: 60%;
+        margin: 20px 10px;
+        background-color: #FFFFFF;
+        color: #0A3871;
+        padding: 15px 80px;
+        border: 1px solid #0A3871;
+        border-radius: 25px;
+        cursor: pointer;
+        font-size: 15px;
+    }
+
+    .container-button-salida {
+        width: 100%;
+    }
 }
