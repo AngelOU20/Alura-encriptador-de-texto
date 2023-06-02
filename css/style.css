@@ -57,8 +57,6 @@ body {
     border-radius: 32px;
 
     overflow: auto;
-
-    /* position: relative; */
 }
 
 .container-texto-salida {
@@ -71,9 +69,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-
-    /* position: absolute; Cambia la posición a absoluta */
-    /* bottom: 20px; */
 }
 
 .text-area {
@@ -84,6 +79,7 @@ body {
     max-width: 600px;
     min-width: 600px;
     outline: none;
+    resize: none;
 
     /*Font*/
     font-size: 25px;
@@ -108,7 +104,6 @@ body {
 }
 
 .boton-encriptador:hover{
-    /* background: linear-gradient(120deg, #0A3871 20%, #0093E9 90%); */
     background-color: #0d4488;
 }
 
