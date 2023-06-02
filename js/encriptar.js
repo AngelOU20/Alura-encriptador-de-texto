@@ -23,11 +23,17 @@ const remplazar = [
 ];
 
 const txtSalida = mensajeFinal.innerText;
-
 console.log(txtSalida);
 
+
 btnEncriptar.addEventListener("click",  function() {
-    const msj = mensaje.value.toLowerCase();
+    const msj = mensaje.value;
+    const regex = /^[a-z0-9\s]*$/
+
+    if (!regex.test(msj)) {
+        alerta();
+        return;
+    }
 
     function encriptar(newText){
         for (let i = 0; i < remplazar.length; i++) {
@@ -40,24 +46,17 @@ btnEncriptar.addEventListener("click",  function() {
 
     const msjEncriptado = encriptar(msj);
 
-    
-    if (msjEncriptado.trim() === "") {
-        mensajeFinal.innerHTML = txtSalida;
-        encabezado.classList.remove("hidden");
-        img.classList.remove("hidden");
-        btnCopiar.classList.add("hidden");
-    } else {
-        mensajeFinal.innerHTML = msjEncriptado;
-        encabezado.classList.add("hidden");
-        img.classList.add("hidden");
-        btnCopiar.classList.remove("hidden");
-    }
-
-    console.log(msjEncriptado);
+    ValidarTextoBlanco(msjEncriptado);
 });
 
 btnDesencriptar.addEventListener("click",  function() {
-    const msj = mensaje.value.toLowerCase();
+    const msj = mensaje.value;
+    const regex = /^[a-z0-9\s]*$/
+
+    if (!regex.test(msj)) {
+        alerta();
+        return;
+    }
 
     function desencriptar(newText){
         for (let i = 0; i < remplazar.length; i++) {
@@ -70,7 +69,15 @@ btnDesencriptar.addEventListener("click",  function() {
 
     const msjEncriptado = desencriptar(msj);
 
-    
+    ValidarTextoBlanco(msjEncriptado);
+});
+
+btnCopiar.addEventListener("click", function() {
+    let textoCopiado = mensajeFinal.innerText;
+    navigator.clipboard.writeText(textoCopiado);
+});
+
+function ValidarTextoBlanco(msjEncriptado) {
     if (msjEncriptado.trim() === "") {
         mensajeFinal.innerHTML = txtSalida;
         encabezado.classList.remove("hidden");
@@ -82,12 +89,13 @@ btnDesencriptar.addEventListener("click",  function() {
         img.classList.add("hidden");
         btnCopiar.classList.remove("hidden");
     }
+}
 
-    console.log(msjEncriptado);
-});
-
-btnCopiar.addEventListener("click", function() {
-    let textoCopiado = mensajeFinal.innerText;
-    // console.log(textoCopiado);
-    navigator.clipboard.writeText(textoCopiado);
-});
+function alerta() {
+    Swal.fire({
+        title: 'Error!',
+        text: 'Solo permite letras minúsculas y sin acentos',
+        icon: 'warning',
+        confirmButtonText: 'Cancelar'
+    })
+}
