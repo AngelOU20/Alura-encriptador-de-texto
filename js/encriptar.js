@@ -23,15 +23,23 @@ const remplazar = [
 ];
 
 const txtSalida = mensajeFinal.innerText;
-console.log(txtSalida);
 
-
-btnEncriptar.addEventListener("click",  function() {
-    const msj = mensaje.value;
-    const regex = /^[a-z0-9\s]*$/
+/* Validar la cadena ingresado */
+function validarTexto(msj) {
+    const regex = /^[a-z\s]*$/
 
     if (!regex.test(msj)) {
         alerta();
+        return false;
+    }
+    return true;
+}
+
+/* Función del botón encriptar */ 
+btnEncriptar.addEventListener("click",  function() {
+    const msj = mensaje.value;
+
+    if (!validarTexto(msj)) {
         return;
     }
 
@@ -46,15 +54,14 @@ btnEncriptar.addEventListener("click",  function() {
 
     const msjEncriptado = encriptar(msj);
 
-    ValidarTextoBlanco(msjEncriptado);
+    validarTextoVacio(msjEncriptado);
 });
 
+/* Función del botón desencriptar */ 
 btnDesencriptar.addEventListener("click",  function() {
     const msj = mensaje.value;
-    const regex = /^[a-z0-9\s]*$/
-
-    if (!regex.test(msj)) {
-        alerta();
+    
+    if (!validarTexto(msj)) {
         return;
     }
 
@@ -69,15 +76,17 @@ btnDesencriptar.addEventListener("click",  function() {
 
     const msjEncriptado = desencriptar(msj);
 
-    ValidarTextoBlanco(msjEncriptado);
+    validarTextoVacio(msjEncriptado);
 });
 
+/* Función del botón copiar */ 
 btnCopiar.addEventListener("click", function() {
     let textoCopiado = mensajeFinal.innerText;
     navigator.clipboard.writeText(textoCopiado);
 });
 
-function ValidarTextoBlanco(msjEncriptado) {
+/* Validar si la cadena esta vacio */ 
+function validarTextoVacio(msjEncriptado) {
     if (msjEncriptado.trim() === "") {
         mensajeFinal.innerHTML = txtSalida;
         encabezado.classList.remove("hidden");
@@ -91,9 +100,10 @@ function ValidarTextoBlanco(msjEncriptado) {
     }
 }
 
+/* sweetalert */ 
 function alerta() {
     Swal.fire({
-        title: 'Error!',
+        title: '¡Error!',
         text: 'Solo permite letras minúsculas y sin acentos',
         icon: 'warning',
         confirmButtonText: 'Cancelar'
