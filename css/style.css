@@ -6,6 +6,9 @@
 body {
     font-family: 'Inter', sans-serif;
     background-color: #F3F5FC;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .container-logo {
@@ -154,6 +157,24 @@ body {
 
 .hidden {
     display: none;
+}
+
+.container-footer {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    padding: 10px;
+}
+
+.container-footer p {
+    font-size: 0.95em;
+    margin: 0;
+    color: #333333;
+}
+
+.container-footer a {
+    color: #333;
+    text-decoration: none;
 }
 
 @media (max-width: 1280px) and (min-width: 768px) {
